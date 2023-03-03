@@ -20,6 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
+        working-directory: example/nasa-api
 
       - name: Make envfile
         uses: SpicyPizza/create-envfile@v1.3
@@ -27,12 +28,15 @@ jobs:
           envkey_API_KEY: ${{ secrets.API_KEY }}
           file_name: .env
           fail_on_empty: false
+          directory: example/nasa-api
 
       - name: Build Web
-        run: flutter build web --web-renderer html --release
+        run: |
+          cd example/nasa-api
+          flutter build web --web-renderer html --base-href='/nasa-api/' --release
 
       - name: "Deploy web app"
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/web
+          publish_dir: example/nasa-api/build/web
