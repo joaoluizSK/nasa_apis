@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
 
       - name: Setup Flutter
-        uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@v2
         with:
           channel: "stable"
 
@@ -31,15 +31,8 @@ jobs:
       - name: Build Web
         run: flutter build web --web-renderer html --release
 
-      - name: Deploy
-        run: |
-          cd build/web
-          git init
-          git config --global user.email jlsk25@gmail.com
-          git config --global user.name Joao Kestering
-          git status
-          git remote add origin https://${{secrets.token}}@github.com/joaoluizSK/nasa_apis.git
-          git checkout -b gh-pages
-          git add --all
-          git commit -m "update"
-          git push origin gh-pages -f
+      - name: "Deploy web app"
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/web
