@@ -29,7 +29,7 @@ jobs:
           fail_on_empty: false
 
       - name: Build Web
-        run: flutter build web --web-rendered html --release
+        run: flutter build web --web-renderer html --release
 
       - name: Deploy
         run: |
