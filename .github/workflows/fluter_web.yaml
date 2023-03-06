@@ -29,7 +29,7 @@ jobs:
           fail_on_empty: false
 
       - name: Build Web
-        run: flutter build web --web-renderer html --base-href='/nasa-apis/' --release
+        run: flutter build web --web-renderer html --base-href='/nasa_apis/' --release
 
       - name: "Deploy web app"
         uses: JamesIves/github-pages-deploy-action@v4
