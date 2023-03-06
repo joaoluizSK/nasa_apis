@@ -21,13 +21,6 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Make envfile
-        uses: SpicyPizza/create-envfile@v1.3
-        with:
-          envkey_API_KEY: ${{ secrets.API_KEY }}
-          file_name: .env
-          fail_on_empty: false
-
       - name: Build Web
         run: flutter build web --web-renderer html --base-href='/nasa_apis/' --release
 
@@ -36,3 +29,5 @@ jobs:
         with:
           folder: build/web
           github_token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
