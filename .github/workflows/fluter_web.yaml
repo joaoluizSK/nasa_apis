@@ -46,3 +46,4 @@ jobs:
         with:
           folder: build/web
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: deploy
