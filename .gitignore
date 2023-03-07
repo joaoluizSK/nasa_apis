@@ -1,3 +1,8 @@
+# Envify related 
+.env
+env.dart
+env.g.dart
+
 # Miscellaneous
 *.class
 *.log

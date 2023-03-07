@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:nasa_apis/config/env.dart';
 import 'package:nasa_apis/entity/astronomy_picture_of_day.dart';
 
 class ApiService {
   Future<AstronomyPictureOfDay> fetchApod() async {
-    final queryParams = {'api_key': dotenv.env['API_KEY']};
+    final queryParams = {'api_key': Secret.api_key};
 
     final uri = Uri.https('api.nasa.gov', '/planetary/apod', queryParams);
 

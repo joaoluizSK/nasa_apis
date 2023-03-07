@@ -18,16 +18,23 @@ jobs:
         with:
           channel: "stable"
 
+      - name: "Decode Environment File"
+        run: sudo echo "${ENV_SECRET// /}" | base64 --decode > .env
+        env:
+          ENV_SECRET: ${{ secrets.ENV_SECRET }}
+
+      - name: "Decode App Config File"
+        run: |
+          mkdir -p lib/config
+          sudo echo "${APP_CONFIG// /}" | base64 --decode > lib/config/env.dart
+        env:
+          APP_CONFIG: ${{ secrets.APP_CONFIG }}
+
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Make envfile
-        uses: SpicyPizza/create-envfile@v1.3
-        with:
-          envkey_API_KEY: ${{ secrets.API_KEY }}
-          file_name: .env
-          fail_on_empty: false
-          directory: .
+      - name: "Inject Environment Variables"
+        run: flutter pub run build_runner build --delete-conflicting-outputs
 
       - name: Build Web
         run: flutter build web --web-renderer html --base-href='/nasa_apis/' --release
