@@ -12,3 +12,6 @@ You can find more information about the public API's here: https://api.nasa.gov
 
 - APOD - Astronomy Picture of the Day
 - ~~Insight Weather - Mars Weather Service API~~ - THIS SERVICE HAS SIGNIFICANT MISSING DATA DUE TO INSIGHT NEEDING TO MANAGE POWER USE.
+
+## See it live
+You can see it live here: https://joaoluizsk.github.io/nasa_apis/#/
