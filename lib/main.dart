@@ -12,10 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'APOD -  Astronomy Picture Of Day',
+      title: 'Nasa APIS',
       theme: ThemeData(
         primarySwatch: Colors.amber,
-        backgroundColor: Colors.black,
       ),
       home: const MyHomePage(),
     );

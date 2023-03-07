@@ -1,16 +1,14 @@
-# nasa_apis
+![NASA](https://api.nasa.gov/assets/img/favicons/favicon-192.png)
 
-A new Flutter project.
+# Nasa APIs
 
-## Getting Started
+A project that consumes the NASA public APIs.
 
-This project is a starting point for a Flutter application.
+## Available Apis
 
-A few resources to get you started if this is your first Flutter project:
+You can find more information about the public API's here: https://api.nasa.gov
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## APIS on this Example
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- APOD - Astronomy Picture of the Day
+- ~~Insight Weather - Mars Weather Service API~~ - THIS SERVICE HAS SIGNIFICANT MISSING DATA DUE TO INSIGHT NEEDING TO MANAGE POWER USE.
